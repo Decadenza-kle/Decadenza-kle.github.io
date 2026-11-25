@@ -1,0 +1,26 @@
+title: My Blog
+author: Decadenza-kle
+description: >-
+  Notes, ideas and things I'm working on.
+url: "https://decadenza-kle.github.io"
+baseurl: ""
+
+permalink: /:year/:month/:day/:title/
+markdown: kramdown
+highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+nav:
+  - title: Posts
+    url: /
+  - title: About
+    url: /about/
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md

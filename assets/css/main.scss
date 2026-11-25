@@ -1,0 +1,70 @@
+---
+---
+:root {
+  --bg: #fdfcfa;
+  --text: #1f2328;
+  --muted: #6b7078;
+  --accent: #2f6fde;
+  --border: #e6e3de;
+  --code-bg: #f3f1ed;
+  --max: 42rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141517;
+    --text: #e6e6e3;
+    --muted: #9a9ea6;
+    --accent: #7aa7ff;
+    --border: #2a2c30;
+    --code-bg: #1d1f22;
+  }
+}
+
+* { box-sizing: border-box; }
+html { font-size: 112.5%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Charter, "Iowan Old Style", Georgia, serif;
+  line-height: 1.65;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main { flex: 1; padding-block: 2.5rem; }
+.wrap { max-width: var(--max); margin-inline: auto; padding-inline: 1.25rem; }
+
+a { color: var(--accent); text-underline-offset: 0.2em; }
+h1, h2, h3, .site-title, nav, .meta, time, .site-footer {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 0.5rem; }
+h2 { margin-top: 2.2rem; }
+
+.site-header { border-bottom: 1px solid var(--border); }
+.site-header .wrap {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-block: 1rem; gap: 1rem; flex-wrap: wrap;
+}
+.site-title { font-weight: 700; color: var(--text); text-decoration: none; }
+nav a { color: var(--muted); text-decoration: none; margin-left: 1.1rem; font-size: 0.9rem; }
+nav a:hover, nav a[aria-current] { color: var(--text); }
+
+.intro { color: var(--muted); margin-bottom: 2rem; }
+.post-list { list-style: none; padding: 0; }
+.post-list li { margin-bottom: 1.75rem; }
+.post-list time { display: block; color: var(--muted); font-size: 0.8rem; }
+.post-list a { font-size: 1.25rem; font-weight: 600; text-decoration: none; }
+.post-list p { margin: 0.25rem 0 0; color: var(--muted); }
+
+.meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 2rem; }
+code { background: var(--code-bg); padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.88em; }
+pre { background: var(--code-bg); padding: 1rem; border-radius: 6px; overflow-x: auto; }
+pre code { background: none; padding: 0; }
+blockquote { margin: 1.5rem 0; padding-left: 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+img { max-width: 100%; }
+
+.site-footer { border-top: 1px solid var(--border); color: var(--muted); font-size: 0.8rem; }
+.site-footer .wrap { display: flex; justify-content: space-between; padding-block: 1.25rem; }
+.site-footer a { color: var(--muted); }
