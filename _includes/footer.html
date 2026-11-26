@@ -1,6 +1,30 @@
-<footer class="site-footer">
-  <div class="wrap">
-    <span>&copy; {{ 'now' | date: '%Y' }} {{ site.author }}</span>
-    <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+<footer class="credits" id="credits">
+  <div class="credits__inner">
+    <div class="credits__rule">
+      <span class="mono">End of sheet</span>
+      <a class="mono" href="#top">↑ Back to top</a>
+    </div>
+
+    <div class="credits__grid">
+      <section class="reveal">
+        <h2 class="label">Index</h2>
+        <ul class="credits__list">
+          {% for s in site.data.sections %}
+            <li><a href="{{ s.url | relative_url }}">{{ s.title }}</a></li>
+          {% endfor %}
+          <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+        </ul>
+      </section>
+      <section class="reveal">
+        <h2 class="label">Elsewhere</h2>
+        <ul class="credits__list">
+          <li><a href="{{ site.links.github }}" rel="me">GitHub</a></li>
+        </ul>
+      </section>
+      <section class="reveal">
+        <h2 class="label">Credits</h2>
+        <p>&copy; {{ 'now' | date: '%Y' }} {{ site.author }}. All work by the author unless credited otherwise.</p>
+      </section>
+    </div>
   </div>
 </footer>

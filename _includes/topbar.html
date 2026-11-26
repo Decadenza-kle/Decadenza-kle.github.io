@@ -1,0 +1,10 @@
+<header class="topbar">
+  <a class="topbar__brand" href="{{ '/' | relative_url }}"><span class="sq" aria-hidden="true"></span>{{ site.title }}</a>
+  <nav class="topbar__nav" aria-label="Sections">
+    {% for s in site.data.sections %}
+      <a href="{{ s.url | relative_url }}"{% if page.url contains s.url %} aria-current="page"{% endif %}>{{ s.title }}</a>
+    {% endfor %}
+    <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+  </nav>
+  <span class="topbar__meta mono" data-clock>UTC --:--:--</span>
+</header>

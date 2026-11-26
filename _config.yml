@@ -1,26 +1,35 @@
-title: My Blog
+title: Decadenza
+tagline: "Personal blog. Research, personal art and critiques."
 author: Decadenza-kle
 description: >-
-  Notes, ideas and things I'm working on.
+  Personal blog. Research, personal art and critiques.
 url: "https://decadenza-kle.github.io"
 baseurl: ""
+lang: en
 
-permalink: /:year/:month/:day/:title/
+permalink: /:categories/:title/
 markdown: kramdown
+kramdown:
+  input: GFM
 highlighter: rouge
 
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
 
-nav:
-  - title: Posts
-    url: /
-  - title: About
-    url: /about/
+links:
+  github: https://github.com/Decadenza-kle
+
+defaults:
+  - scope: { type: posts }
+    values: { layout: post }
 
 exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
   - README.md
+
+# Observer position for the live sky map on the About page.
+sky:
+  lat: 50.67
+  lon: 4.61

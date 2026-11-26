@@ -1,0 +1,47 @@
+---
+layout: default
+---
+<div class="stage">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hud" aria-hidden="true">
+      <span class="hud__frame"></span>
+      <div class="hud__tl">
+        <span class="hud__title">{{ site.title }}</span>
+        <span class="hud__sub">{{ site.tagline }}</span>
+      </div>
+      <div class="hud__strip mono">
+        <span class="hud__col">
+          <span class="hud__cell"><span class="hud__k"><span class="rec">●</span> UTC</span><span class="hud__v" data-clock-utc>--:--:--</span></span>
+          <span class="hud__cell"><span class="hud__k">Local</span><span class="hud__v" data-local>--:--:--</span></span>
+        </span>
+        <span class="hud__col">
+          <span class="hud__cell"><span class="hud__k">Live temperature</span><span class="hud__v" data-weather="temp">--</span></span>
+          <span class="hud__cell"><span class="hud__k">Feels like</span><span class="hud__v" data-weather="feels">--</span></span>
+        </span>
+        <span class="hud__col">
+          <span class="hud__cell"><span class="hud__k">Humidity</span><span class="hud__v" data-weather="humidity">--</span></span>
+          <span class="hud__cell"><span class="hud__k">Wind</span><span class="hud__v" data-weather="wind">--</span></span>
+        </span>
+      </div>
+    </div>
+
+    <h1 id="hero-title" class="visually-hidden">{{ site.title }}: {{ site.tagline }}</h1>
+
+    <nav class="plates" aria-label="Sections">
+      {% for s in site.data.sections %}
+        <a class="plate" href="{{ s.url | relative_url }}" style="--i: {{ forloop.index0 }}">
+          <span class="plate__frame">
+            <img src="{{ s.image | relative_url }}" alt="" decoding="async">
+            <span class="plate__tint"></span>
+            {% include brackets.html %}
+            <span class="plate__title" aria-hidden="true">{{ s.title }}</span>
+            <span class="plate__scan"></span>
+          </span>
+          <span class="plate__caption">{{ s.title }}</span>
+        </a>
+      {% endfor %}
+    </nav>
+  </section>
+
+  {% include footer.html %}
+</div>

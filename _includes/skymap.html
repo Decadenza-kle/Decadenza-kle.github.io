@@ -1,0 +1,13 @@
+<figure class="skymap" data-sky data-lat="{{ site.sky.lat }}" data-lon="{{ site.sky.lon }}">
+  <div class="skymap__stage">
+    <canvas aria-label="Map of the bright stars currently above the horizon"></canvas>
+  </div>
+  <figcaption class="skymap__info mono">
+    <span class="hud__cell"><span class="hud__k">Sky</span><span class="hud__v" data-sky-out="phase">--</span></span>
+    <span class="hud__cell"><span class="hud__k">Stars up</span><span class="hud__v" data-sky-out="count">--</span></span>
+    <span class="hud__cell"><span class="hud__k">Sidereal</span><span class="hud__v" data-sky-out="lst">--</span></span>
+    <span class="hud__cell"><span class="hud__k">Sun alt.</span><span class="hud__v" data-sky-out="sun">--</span></span>
+    <span class="hud__cell"><span class="hud__k">Moon</span><span class="hud__v" data-sky-out="moon">--</span></span>
+  </figcaption>
+</figure>
+<script src="{{ '/assets/js/sky.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

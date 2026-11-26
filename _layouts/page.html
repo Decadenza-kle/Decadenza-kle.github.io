@@ -1,9 +1,12 @@
 ---
 layout: default
 ---
-<article class="page">
-  <h1>{{ page.title }}</h1>
-  <div class="content">
+<article class="post">
+  <header class="post-head">
+    <p class="post-head__crumbs mono">{{ site.title }} · {{ page.title }}</p>
+    <h1 class="post-head__title">{{ page.title }}</h1>
+  </header>
+  <div class="post-body prose">
     {{ content }}
   </div>
 </article>

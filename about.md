@@ -1,7 +1,9 @@
 ---
-layout: page
+layout: about
 title: About
 permalink: /about/
 ---
 
-Hi! This is my blog. Write a few lines here about who you are and what you'll write about.
+PhD student in Economics, hybrid visual artist and self diagnosed art aficionado.
+
+Repository of my whereabouts and glorious thoughts

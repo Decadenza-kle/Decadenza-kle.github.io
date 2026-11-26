@@ -1,0 +1,28 @@
+# The three sections of the site. Order here = order on the home page.
+# `style` picks the list layout on the section page: index | gallery | dossier
+- id: research
+  numeral: I
+  code: RSC
+  title: Research
+  url: /research/
+  image: /assets/img/plate-research.svg
+  blurb: Studies, field notes and long-form investigations.
+  style: index
+
+- id: art
+  numeral: II
+  code: ART
+  title: Art
+  url: /art/
+  image: /assets/img/plate-art.svg
+  blurb: Drawings, images and works in progress.
+  style: gallery
+
+- id: critique
+  numeral: III
+  code: CRT
+  title: Critique
+  url: /critique/
+  image: /assets/img/plate-critique.svg
+  blurb: Close readings of other people's work.
+  style: dossier

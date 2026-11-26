@@ -1,0 +1,68 @@
+---
+layout: default
+---
+{% assign sec = site.data.sections | where: "id", page.section | first %}
+{% assign posts = site.categories[page.section] %}
+{% assign total = posts | size %}
+<div class="sheet sheet--{{ sec.style }}">
+  <header class="sheet-head">
+    <h1 class="sheet-head__title">{{ sec.title }}</h1>
+    <p class="sheet-head__blurb">{{ sec.blurb }}</p>
+  </header>
+
+  {% if total == 0 %}
+    <p class="empty mono">No entries yet</p>
+
+  {% elsif sec.style == 'gallery' %}
+    <div class="gallery">
+      {% for post in posts %}
+        <a class="gallery__item reveal" href="{{ post.url | relative_url }}">
+          <span class="gallery__frame">
+            {% if post.image %}<img src="{{ post.image | relative_url }}" alt="{{ post.image_alt }}" loading="lazy">{% endif %}
+            {% include brackets.html %}
+          </span>
+          <strong>{{ post.title }}</strong>
+          <span class="gallery__cap mono">{{ post.date | date: '%Y' }}{% if post.medium %} · {{ post.medium }}{% endif %}</span>
+        </a>
+      {% endfor %}
+    </div>
+
+  {% elsif sec.style == 'dossier' %}
+    <ol class="dossier">
+      {% for post in posts %}
+        <li class="dossier__item reveal">
+          <a href="{{ post.url | relative_url }}">
+            <span class="dossier__case mono">{{ post.date | date: '%Y.%m.%d' }}</span>
+            <span class="dossier__body">
+              <strong>{{ post.title }}</strong>
+              {% if post.subject %}<span class="mono dossier__subject">On · {{ post.subject }}</span>{% endif %}
+              <span class="dossier__excerpt">{{ post.excerpt | strip_html | truncatewords: 34 }}</span>
+            </span>
+            <span class="dossier__thumb">
+              {% if post.image %}<img src="{{ post.image | relative_url }}" alt="" loading="lazy">{% endif %}
+              <span class="dossier__grid" aria-hidden="true"></span>
+            </span>
+          </a>
+        </li>
+      {% endfor %}
+    </ol>
+
+  {% else %}
+    <ol class="index-sheet">
+      {% for post in posts %}
+        <li class="index-sheet__item reveal">
+          <a href="{{ post.url | relative_url }}">
+            <span class="index-sheet__thumb">{% if post.image %}<img src="{{ post.image | relative_url }}" alt="" loading="lazy">{% endif %}</span>
+            <span class="index-sheet__leader" aria-hidden="true"></span>
+            <span class="index-sheet__num mono">{{ forloop.index }}</span>
+            <span class="index-sheet__body">
+              <strong>{{ post.title }}</strong>
+              <span class="mono">{{ post.date | date: '%Y.%m.%d' }}{% for tag in post.tags %} · {{ tag }}{% endfor %}</span>
+              <span class="index-sheet__excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</span>
+            </span>
+          </a>
+        </li>
+      {% endfor %}
+    </ol>
+  {% endif %}
+</div>

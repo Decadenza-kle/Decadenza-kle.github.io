@@ -1,0 +1,16 @@
+{%- assign windows = "gdp|Local GDP|Real growth, year on year;rate|Interest rate|10-year government bond yield;emp|Employment|Employment rate, ages 20 to 64" | split: ";" -%}
+<div class="econ">
+  {%- for w in windows -%}
+  {%- assign p = w | split: "|" %}
+  <section class="econ__win" data-econ="{{ p[0] }}" aria-label="{{ p[1] }}: {{ p[2] }}">
+    <header class="econ__head mono">
+      <span class="econ__title">{{ p[1] }}</span>
+      <span class="econ__sub">{{ p[2] }}</span>
+    </header>
+    <p class="econ__val"><span class="econ__num" data-econ-out="value">--</span><span class="econ__delta mono" data-econ-out="delta"></span></p>
+    <div class="econ__plot" data-econ-out="plot"></div>
+    <footer class="econ__foot mono"><span data-econ-out="from"></span><span data-econ-out="to"></span></footer>
+  </section>
+  {%- endfor %}
+</div>
+<script src="{{ '/assets/js/econ.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
